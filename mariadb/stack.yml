@@ -10,7 +10,12 @@ services:
       MARIADB_ROOT_PASSWORD: example
 
   adminer:
-    image: adminer
+    image: phpmyadmin/phpmyadmin
     restart: always
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=db
+      - PMA_USER=root
+      - PMA_PASSWORD=pwd
     ports:
-      - 8080:8080
+      - 8080:80
