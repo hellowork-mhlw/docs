@@ -7,15 +7,19 @@ services:
     image: mariadb
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: pwd
+      MYSQL_DATABASE: test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd
+      MARIADB_ROOT_PASSWORD: pwd
 
   adminer:
     image: phpmyadmin/phpmyadmin
     restart: always
     environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOSTS=db
-      - PMA_USER=root
-      - PMA_PASSWORD=pwd
+      PMA_ARBITRARY: 1
+      PMA_HOSTS: db
+      PMA_USER: root
+      PMA_PASSWORD: pwd
     ports:
       - 8080:80
